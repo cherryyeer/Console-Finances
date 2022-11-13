@@ -94,14 +94,27 @@ console.log(totalMonths)
 // The net total amount of Profit/Losses over the entire period.
 // var financeTest = ['Jan-2010', 867884];
 var total=0;
-for (i=0; i<totalMonths; i++) {
-    var financeRow = finances[i];
+for (i=0; i<totalMonths; i++){
+    var financeRow = finances[i]; // get the seperate row array
     total = total + financeRow[1]
     // total += financeRow[1]
 }
 console.log(total)
 
 // The average of the changes in Profit/Losses over the entire period.
+
+var totalChanges = 0
+
+for (i=0; i<totalMonths; i++){
+    var financeSingle = financeRow[1]
+    var changes = financeSingle[i+1] - financeSingle[i]
+    totalChanges = totalChanges + changes[i]
+}
+
+var averageChanges = totalChanges / (totalMonths - 1)
+
+console.log(averageChanges)
+
 
 // You will need to track what the total change in profits are from month to month and then find the average.
 // (Total/Number of months)
