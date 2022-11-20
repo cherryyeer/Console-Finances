@@ -14,6 +14,7 @@ To use this repository, you can view the index.js code, open the deployed site a
 MIT License
 
 ## Screenshot
+<img width="436" alt="截屏2022-11-20 22 02 16" src="https://user-images.githubusercontent.com/116026358/202928607-fe11389f-94e3-4780-9cd9-5e308082da91.png">
 
 ## The URL of the deployed application.
 https://cherryyeer.github.io/Console-Finances/
