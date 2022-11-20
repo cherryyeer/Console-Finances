@@ -88,7 +88,7 @@ var finances = [
 ];
 
 // The total number of months included in the dataset.
-var totalMonths = finances.length
+var totalMonths = finances.length;
 
 console.log(totalMonths)
 // The net total amount of Profit/Losses over the entire period.
@@ -107,11 +107,15 @@ console.log(total)
 
 var totalChanges = 0
 
-for (i=0; i<totalMonths; i++){
-    var financeRow = finances[i]
-    var financeSingle = financeRow[1]
-    var changes = financeSingle[i+1] - financeSingle[i]
-    totalChanges = totalChanges + changes[i]
+for (i=0; i<totalMonths-1; i++){
+    var financeRow = finances[i]；
+    var financeSingle = financeRow[1]；
+
+    var financeRowAbove = finances[i+1]；
+    var financeSingleAbove = financeRowAbove[1]；
+
+    var changes = financeSingle - financeSingleAbove；
+    totalChanges = totalChanges + changes
 }
 
 var averageChanges = totalChanges / totalMonths
@@ -129,14 +133,19 @@ console.log(averageChanges)
 //     }
 // }
 // console.log(largest);
+
+var largest = 0
+var largestDate = ""
 for (i=0; i<totalMonths; i++) {
     var financeRow = finances[i];
     var financeSingle = financeRow[1];
-    var largest = financeSingle[0];
+    //largest = financeSingle[0];
+    //if largest is smaller than the difference betweem finance row above and curremt finance row, then replace largest
    if (largest<financeSingle[i]) {
     largest = financeSingle[i];
-    console.log(largest)
-   }
+    largestDate = financeRow[0];
+}
+console.log(largest)
 }
 
 // The greatest decrease in losses (date and amount) over the entire period.
