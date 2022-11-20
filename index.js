@@ -90,7 +90,6 @@ var finances = [
 // The total number of months included in the dataset.
 var totalMonths = finances.length;
 
-console.log(totalMonths)
 // The net total amount of Profit/Losses over the entire period.
 // var financeTest = ['Jan-2010', 867884];
 var total=0;
@@ -99,7 +98,6 @@ for (i=0; i<totalMonths; i++){
     total = total + financeRow[1]
     // total += financeRow[1]
 }
-console.log(total)
 
 // The average of the changes in Profit/Losses over the entire period.
 // You will need to track what the total change in profits are from month to month and then find the average.
@@ -108,19 +106,18 @@ console.log(total)
 var totalChanges = 0
 
 for (i=0; i<totalMonths-1; i++){
-    var financeRow = finances[i]；
-    var financeSingle = financeRow[1]；
+    var financeRow = finances[i];
+    var financeSingle = financeRow[1];
 
-    var financeRowAbove = finances[i+1]；
-    var financeSingleAbove = financeRowAbove[1]；
+    var financeRowAbove = finances[i+1];
+    var financeSingleAbove = financeRowAbove[1];
 
-    var changes = financeSingle - financeSingleAbove；
+    var changes = financeSingle - financeSingleAbove;
     totalChanges = totalChanges + changes
 }
 
 var averageChanges = totalChanges / totalMonths
 
-console.log(averageChanges)
 
 // The greatest increase in profits (date and amount) over the entire period.
 
@@ -137,35 +134,28 @@ console.log(averageChanges)
 var largest = 0
 var largestDate = ""
 for (i=0; i<totalMonths; i++) {
-    var financeRow = finances[i];
-    var financeSingle = financeRow[1];
-    //largest = financeSingle[0];
-    //if largest is smaller than the difference betweem finance row above and curremt finance row, then replace largest
-   if (largest<financeSingle[i]) {
-    largest = financeSingle[i];
-    largestDate = financeRow[0];
+    var financeSingle = finances[i][1];
+   if (largest<finances[i][1]) {
+    largest = finances[i][1];
+    largestDate = finances[i];
 }
-console.log(largest)
 }
 
 // The greatest decrease in losses (date and amount) over the entire period.
-
+var smallest = 0
+var smallestDate = ""
+for (i=0; i<totalMonths; i++) {
+    var financeSingle = finances[i][1];
+   if (smallest>finances[i][1]) {
+    smallest = finances[i][1];
+    smallestDate = finances[i];
+}
+}
 
 console.log("Financial Analysis" + "\n" + "-----------------------" + "\n" + 
 "Total Months: " + totalMonths + "\n" + 
 "Total: $" + total + "\n" +
-"Average Change: $" + "\n" +
-"Greatest Increase in Profits: " + "\n" +
-"Greatest Decrease in Profits: " + "\n"
+"Average Change: $" + averageChanges + "\n" + 
+"Greatest Increase in Profits: " + largestDate + "\n" +
+"Greatest Decrease in Profits: " + smallestDate + "\n"
 )
-
-// 
-  ```text
-  Financial Analysis
-  ----------------------------
-  Total Months: 86
-  Total: $38382578
-  Average  Change: $7803.48
-  Greatest Increase in Profits: Nov-2016 ($795914)
-  Greatest Decrease in Profits: Jul-2016 ($-1163797)
-  ```
